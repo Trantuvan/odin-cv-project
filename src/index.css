@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Satoshi";
+    src: url("./assets/fonts/Satoshi-Black.woff2") format("woff2"),
+      url("./assets/fonts/Satoshi-Black.woff") format("woff");
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+@layer component {
+  body {
+    font-family: "Inter", sans-serif;
+  }
+}
