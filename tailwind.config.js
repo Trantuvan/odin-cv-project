@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/*.html"],
   theme: {
@@ -8,14 +9,11 @@ module.exports = {
       desktop: "1248px",
     },
     colors: {
-      white: "#FFFFFF",
-      purple: "#3F3CBB",
-      midnight: "#121063",
-      metal: "#565584",
-      "tahiti-blue": "#3AB7BF",
-      "cool-white": "#ECEBFF",
-      "bubble-gum": "#FF77E9",
-      "copper-rust": "#78DCCA",
+      white: "#d4d4d4",
+      purple: "#4338ca",
+      midnight: "#171717",
+      metal: "#d4d4d8",
+      "slate-600": "#475569",
     },
     boxShadow: {
       sm: "0px 2px 4px 0px rgba(11,10,55,0.15)",
@@ -37,5 +35,5 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

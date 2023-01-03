@@ -1,3 +1,12 @@
-export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+import React, { Component } from "react";
+import Header from "./components/Header";
+
+export default class App extends Component {
+  render() {
+    return (
+      <div className="grid">
+        <Header />
+      </div>
+    );
+  }
 }
