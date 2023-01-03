@@ -12,8 +12,8 @@ module.exports = {
       white: "#d4d4d4",
       purple: "#4338ca",
       midnight: "#171717",
-      metal: "#d4d4d8",
-      "slate-600": "#475569",
+      metal: "#a1a1aa",
+      "zinc-50": "#fafafa",
     },
     boxShadow: {
       sm: "0px 2px 4px 0px rgba(11,10,55,0.15)",
