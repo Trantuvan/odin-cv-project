@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/odin-cv-project/static/css/main.e01eef6d.css",
-    "main.js": "/odin-cv-project/static/js/main.61a44f94.js",
+    "main.css": "/odin-cv-project/static/css/main.95804b1d.css",
+    "main.js": "/odin-cv-project/static/js/main.f74cae49.js",
     "static/media/Satoshi-Black.woff": "/odin-cv-project/static/media/Satoshi-Black.4261d202e1e9410db1bf.woff",
     "static/media/Satoshi-Black.woff2": "/odin-cv-project/static/media/Satoshi-Black.b5013d854bb5a8e48651.woff2",
     "index.html": "/odin-cv-project/index.html",
-    "main.e01eef6d.css.map": "/odin-cv-project/static/css/main.e01eef6d.css.map",
-    "main.61a44f94.js.map": "/odin-cv-project/static/js/main.61a44f94.js.map"
+    "main.95804b1d.css.map": "/odin-cv-project/static/css/main.95804b1d.css.map",
+    "main.f74cae49.js.map": "/odin-cv-project/static/js/main.f74cae49.js.map"
   },
   "entrypoints": [
-    "static/css/main.e01eef6d.css",
-    "static/js/main.61a44f94.js"
+    "static/css/main.95804b1d.css",
+    "static/js/main.f74cae49.js"
   ]
 }
