@@ -18,7 +18,7 @@
   [multiple],
   textarea,
   select {
-    @apply rounded-sm bg-metal border-none shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500;
+    @apply rounded-sm bg-gray-100 border-none shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-indigo-100;
   }
 }
 
@@ -29,5 +29,17 @@
 
   body {
     font-family: "Poppins", sans-serif;
+  }
+
+  form {
+    @apply flex flex-col gap-2;
+  }
+
+  .form-control {
+    @apply flex flex-col gap-1;
+  }
+
+  label {
+    @apply text-sm text-gray-500 font-medium;
   }
 }
