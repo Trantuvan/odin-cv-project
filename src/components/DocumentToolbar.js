@@ -14,7 +14,10 @@ export default class DocumentToolbar extends Component {
             className="bg-transparent text-white font-semibold"
           />
         </form>
-        <button className="bg-purple text-white p-1 rounded-[3px]">
+        <button
+          className="bg-purple text-white p-1 rounded-[3px] hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          type="button"
+        >
           <BsDownload className="text-lg" />
         </button>
       </div>

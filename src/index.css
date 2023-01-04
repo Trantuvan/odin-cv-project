@@ -3,15 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Satoshi";
-    src: url("./assets/fonts/Satoshi-Black.woff2") format("woff2"),
-      url("./assets/fonts/Satoshi-Black.woff") format("woff");
-    font-weight: 900;
-    font-display: swap;
-    font-style: normal;
-  }
-
   [type="text"],
   [type="email"],
   [type="url"],
@@ -27,7 +18,7 @@
   [multiple],
   textarea,
   select {
-    @apply rounded-sm bg-metal border-none shadow-sm focus:ring-purple focus:ring-2;
+    @apply rounded-sm bg-metal border-none shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500;
   }
 }
 
@@ -37,6 +28,6 @@
   }
 
   body {
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 }

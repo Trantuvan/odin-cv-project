@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import FormToolbar from "./FormToolbar";
 
 export default class DocumentBody extends Component {
   render() {
-    return <div className="mt-14 h-screen grid px-5">Body</div>;
+    return (
+      <div className="mt-16 h-screen grid px-5">
+        <div>
+          <FormToolbar sectionName="Personal details" />
+        </div>
+      </div>
+    );
   }
 }
