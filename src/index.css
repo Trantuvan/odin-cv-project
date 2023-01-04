@@ -32,7 +32,7 @@
   }
 
   form {
-    @apply flex flex-col gap-2;
+    @apply grid gap-2;
   }
 
   .form-control {
