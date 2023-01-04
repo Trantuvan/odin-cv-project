@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import Body from "./components/Body";
+import DocumentToolbar from "./components/DocumentToolbar";
+import DocumentBody from "./components/DocumentBody";
 
 export default class App extends Component {
   render() {
     return (
-      <div className="grid">
-        <Header />
-        <Body />
+      <div>
+        <DocumentToolbar />
+        <DocumentBody />
       </div>
     );
   }

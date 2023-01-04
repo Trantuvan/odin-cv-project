@@ -32,6 +32,10 @@
 }
 
 @layer component {
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     font-family: "Inter", sans-serif;
   }
