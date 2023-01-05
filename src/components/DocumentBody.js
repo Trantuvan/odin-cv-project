@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FormSectionName from "./FormSectionName";
 import FormPersonalDetails from "./FormPersonalDetails";
+import EducationSection from "./EducationSection";
 
 export default class DocumentBody extends Component {
   state = {
@@ -11,6 +12,13 @@ export default class DocumentBody extends Component {
       phoneNumber: "",
       address: "",
     },
+    educations: [],
+  };
+
+  educationChange = (currentEdu) => {
+    this.setState(({ educations }) => ({
+      educations: [...educations, currentEdu],
+    }));
   };
 
   personalDetailsChange = (evt) => {
@@ -36,7 +44,7 @@ export default class DocumentBody extends Component {
             />
           </div>
           <div className="flex flex-col gap-6 after:border-b-2 after:border-gray-200">
-            <FormSectionName sectionName="Education" />
+            <EducationSection educationChange={this.educationChange} />
           </div>
         </div>
         <div className="cv-section"></div>
