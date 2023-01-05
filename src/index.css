@@ -42,4 +42,9 @@
   label {
     @apply text-sm text-gray-500 font-medium;
   }
+
+  .aspect-1-1 {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
 }
