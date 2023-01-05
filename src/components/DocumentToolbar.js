@@ -11,7 +11,7 @@ export default class DocumentToolbar extends Component {
             name="cvName"
             id="cv-name"
             placeholder="Untitled resume"
-            className="bg-transparent text-white font-semibold"
+            className="bg-transparent text-white font-semibold focus:bg-transparent"
           />
         </form>
         <button
