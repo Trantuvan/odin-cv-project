@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
-export default class FormToolbar extends Component {
+export default class FormSectionName extends Component {
   static propTypes = {
     sectionName: PropTypes.string.isRequired,
   };
