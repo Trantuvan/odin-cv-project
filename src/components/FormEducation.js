@@ -32,8 +32,10 @@ export default class FormEducation extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    const { educationChange } = this.props;
+    const { educationChange, handleFormToggle } = this.props;
+    console.log(educationChange);
     educationChange(this.state.education);
+    handleFormToggle(evt);
 
     // *clearing form controlled input field
     this.setState({
@@ -53,7 +55,7 @@ export default class FormEducation extends Component {
     const {
       education: { education, school, city, startDate, endDate, description },
     } = this.state;
-    const { isDisplayed, handleFormToggle } = this.props;
+    const { isDisplayed } = this.props;
 
     return (
       <>
@@ -127,7 +129,6 @@ export default class FormEducation extends Component {
               <button
                 type="submit"
                 className="pl-1 pr-3 py-1 flex gap-1 items-center rounded text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                onClick={handleFormToggle}
               >
                 <BsCheck2 />
                 Done

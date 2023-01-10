@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import FormSectionName from "./FormSectionName";
 import FormEducation from "./FormEducation";
+import FormElementItem from "./FormElementItem";
 import { GrFormAdd } from "react-icons/gr";
 
 export default class EducationSection extends Component {
   static propTypes = {
     educationChange: PropTypes.func.isRequired,
+    educations: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   state = {
@@ -22,11 +24,48 @@ export default class EducationSection extends Component {
   };
 
   render() {
-    const { educationChange } = this.props;
+    const { educationChange, educations } = this.props;
     const { isDisplayed } = this.state;
+    const listArray = [];
+
+    educations.forEach((edu) => {
+      let paragraph;
+
+      if (edu.school.length === 0) {
+        paragraph = `${edu.city}`;
+      } else if (edu.city.length === 0) {
+        paragraph = `${edu.school}`;
+      } else {
+        paragraph = `${edu.school}, ${edu.city}`;
+      }
+
+      const content = (
+        <div>
+          <h4 className="font-bold text-gray-800 truncate">{edu.education}</h4>
+          <p className="text-gray-500 truncate">{paragraph}</p>
+        </div>
+      );
+
+      listArray.push(
+        <FormElementItem
+          key={edu.id}
+          children={
+            edu.education.length === 0 &&
+            edu.school.length === 0 &&
+            edu.city.length === 0
+              ? null
+              : content
+          }
+          defaultText="[Education]"
+        />
+      );
+    });
+
     return (
       <>
         <FormSectionName sectionName="Education" />
+        {/* if listArray empty it will not render */}
+        {listArray}
         <FormEducation
           educationChange={educationChange}
           handleFormToggle={this.handleFormToggle}

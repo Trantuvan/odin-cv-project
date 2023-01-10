@@ -16,6 +16,7 @@ export default class DocumentBody extends Component {
   };
 
   educationChange = (currentEdu) => {
+    console.log(currentEdu);
     this.setState(({ educations }) => ({
       educations: [...educations, currentEdu],
     }));
@@ -32,10 +33,10 @@ export default class DocumentBody extends Component {
   };
 
   render() {
-    const { personalDetails } = this.state;
+    const { personalDetails, educations } = this.state;
     return (
       <div className="mt-14 h-screen grid px-5 py-6">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-5 after:border-b-2 after:border-gray-200">
             <FormSectionName sectionName="Personal details" />
             <FormPersonalDetails
@@ -43,8 +44,11 @@ export default class DocumentBody extends Component {
               handleChange={this.personalDetailsChange}
             />
           </div>
-          <div className="flex flex-col gap-6 after:border-b-2 after:border-gray-200">
-            <EducationSection educationChange={this.educationChange} />
+          <div className="flex flex-col gap-5 after:border-b-2 after:border-gray-200">
+            <EducationSection
+              educationChange={this.educationChange}
+              educations={educations}
+            />
           </div>
         </div>
         <div className="cv-section"></div>
