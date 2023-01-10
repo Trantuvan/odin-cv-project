@@ -15,6 +15,12 @@ export default class DocumentBody extends Component {
     educations: [],
   };
 
+  removeEducation = (eduId) => {
+    this.setState(({ educations }) => ({
+      educations: educations.filter((edu) => edu.id !== eduId),
+    }));
+  };
+
   educationChange = (currentEdu) => {
     console.log(currentEdu);
     this.setState(({ educations }) => ({
@@ -48,6 +54,7 @@ export default class DocumentBody extends Component {
             <EducationSection
               educationChange={this.educationChange}
               educations={educations}
+              handleRemove={this.removeEducation}
             />
           </div>
         </div>

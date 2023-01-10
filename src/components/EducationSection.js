@@ -9,6 +9,7 @@ export default class EducationSection extends Component {
   static propTypes = {
     educationChange: PropTypes.func.isRequired,
     educations: PropTypes.arrayOf(PropTypes.object).isRequired,
+    handleRemove: PropTypes.func.isRequired,
   };
 
   state = {
@@ -24,7 +25,7 @@ export default class EducationSection extends Component {
   };
 
   render() {
-    const { educationChange, educations } = this.props;
+    const { educationChange, educations, handleRemove } = this.props;
     const { isDisplayed } = this.state;
     const listArray = [];
 
@@ -49,6 +50,7 @@ export default class EducationSection extends Component {
       listArray.push(
         <FormElementItem
           key={edu.id}
+          index={edu.id}
           children={
             edu.education.length === 0 &&
             edu.school.length === 0 &&
@@ -57,6 +59,7 @@ export default class EducationSection extends Component {
               : content
           }
           defaultText="[Education]"
+          handleRemove={handleRemove}
         />
       );
     });
