@@ -7,26 +7,34 @@ import { GrFormAdd } from "react-icons/gr";
 
 export default class EducationSection extends Component {
   static propTypes = {
-    educationChange: PropTypes.func.isRequired,
+    pushToEducations: PropTypes.func.isRequired,
     educations: PropTypes.arrayOf(PropTypes.object).isRequired,
     handleRemove: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
   };
 
   state = {
-    isDisplayed: true,
+    isFormDisplayed: true,
   };
 
   handleFormToggle = (evt) => {
     evt.preventDefault();
 
-    this.setState(({ isDisplayed }) => ({
-      isDisplayed: !isDisplayed,
+    this.setState(({ isFormDisplayed }) => ({
+      isFormDisplayed: !isFormDisplayed,
     }));
   };
 
   render() {
-    const { educationChange, educations, handleRemove } = this.props;
-    const { isDisplayed } = this.state;
+    const {
+      pushToEducations,
+      educations,
+      handleRemove,
+      handleEdit,
+      education,
+      handleChange,
+    } = this.props;
+    const { isFormDisplayed, isElementDisplayed } = this.state;
     const listArray = [];
 
     educations.forEach((edu) => {
@@ -59,7 +67,10 @@ export default class EducationSection extends Component {
               : content
           }
           defaultText="[Education]"
+          isElementDisplayed={isElementDisplayed}
           handleRemove={handleRemove}
+          handleEdit={handleEdit}
+          handleFormToggle={this.handleFormToggle}
         />
       );
     });
@@ -70,9 +81,12 @@ export default class EducationSection extends Component {
         {/* if listArray empty it will not render */}
         {listArray}
         <FormEducation
-          educationChange={educationChange}
+          education={education}
+          handleChange={handleChange}
+          pushToEducations={pushToEducations}
           handleFormToggle={this.handleFormToggle}
-          isDisplayed={isDisplayed}
+          handleElemToggle={this.handleElemToggle}
+          isDisplayed={isFormDisplayed}
         />
         <button
           type="button"

@@ -8,11 +8,20 @@ export default class FormElementItem extends Component {
     defaultText: PropTypes.string,
     index: PropTypes.string.isRequired,
     handleRemove: PropTypes.func.isRequired,
+    handleFormToggle: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
   };
 
   handleRemove = () => {
     const { index, handleRemove } = this.props;
     handleRemove(index);
+  };
+
+  handleEdit = (evt) => {
+    const { index, handleFormToggle, handleEdit } = this.props;
+    this.setState({ isDisplayed: false });
+    handleFormToggle(evt);
+    handleEdit(index);
   };
 
   render() {
@@ -28,7 +37,10 @@ export default class FormElementItem extends Component {
           >
             <MdDelete className="w-5 h-5" />
           </button>
-          <button className="p-1 border-[1px] rounded hover:bg-gray-100 hover:border-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500/70">
+          <button
+            className="p-1 border-[1px] rounded hover:bg-gray-100 hover:border-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500/70"
+            onClick={this.handleEdit}
+          >
             <MdOutlineModeEditOutline className="w-5 h-5" />
           </button>
         </div>

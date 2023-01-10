@@ -1,61 +1,26 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import uniqid from "uniqid";
 import { BsCheck2 } from "react-icons/bs";
 export default class FormEducation extends Component {
   static propTypes = {
-    educationChange: PropTypes.func.isRequired,
+    pushToEducations: PropTypes.func.isRequired,
     handleFormToggle: PropTypes.func.isRequired,
     isDisplayed: PropTypes.bool.isRequired,
   };
 
-  state = {
-    education: {
-      id: uniqid(),
-      education: "",
-      school: "",
-      city: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    },
-  };
-
-  educationChange = (evt) => {
-    const name = evt.target.name;
-    const value = evt.target.value;
-
-    this.setState(({ education }) => ({
-      education: { ...education, [name]: value },
-    }));
-  };
-
   handleSubmit = (evt) => {
     evt.preventDefault();
-    const { educationChange, handleFormToggle } = this.props;
-    console.log(educationChange);
-    educationChange(this.state.education);
+    const { handleFormToggle, pushToEducations } = this.props;
+    pushToEducations();
     handleFormToggle(evt);
-
-    // *clearing form controlled input field
-    this.setState({
-      education: {
-        id: uniqid(),
-        education: "",
-        school: "",
-        city: "",
-        startDate: "",
-        endDate: "",
-        description: "",
-      },
-    });
   };
 
   render() {
     const {
+      handleChange,
+      isDisplayed,
       education: { education, school, city, startDate, endDate, description },
-    } = this.state;
-    const { isDisplayed } = this.props;
+    } = this.props;
 
     return (
       <>
@@ -71,7 +36,7 @@ export default class FormEducation extends Component {
                 name="education"
                 id="education"
                 value={education}
-                onChange={this.educationChange}
+                onChange={handleChange}
               />
             </div>
             <div className="form-control">
@@ -81,7 +46,7 @@ export default class FormEducation extends Component {
                 name="school"
                 id="school"
                 value={school}
-                onChange={this.educationChange}
+                onChange={handleChange}
               />
             </div>
             <div className="form-control">
@@ -91,7 +56,7 @@ export default class FormEducation extends Component {
                 name="city"
                 id="city"
                 value={city}
-                onChange={this.educationChange}
+                onChange={handleChange}
               />
             </div>
             <div className="grid grid-cols-2 gap-8">
@@ -102,7 +67,7 @@ export default class FormEducation extends Component {
                   name="startDate"
                   id="start-date"
                   value={startDate}
-                  onChange={this.educationChange}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form-control">
@@ -112,7 +77,7 @@ export default class FormEducation extends Component {
                   name="endDate"
                   id="end-date"
                   value={endDate}
-                  onChange={this.educationChange}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -122,7 +87,7 @@ export default class FormEducation extends Component {
                 id="desc"
                 name="description"
                 value={description}
-                onChange={this.educationChange}
+                onChange={handleChange}
               />
             </div>
             <div className="form-control items-end mt-1">

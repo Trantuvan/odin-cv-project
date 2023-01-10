@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uniqid from "uniqid";
 import FormSectionName from "./FormSectionName";
 import FormPersonalDetails from "./FormPersonalDetails";
 import EducationSection from "./EducationSection";
@@ -12,7 +13,17 @@ export default class DocumentBody extends Component {
       phoneNumber: "",
       address: "",
     },
+    isEditEducation: false,
     educations: [],
+    education: {
+      id: uniqid(),
+      education: "",
+      school: "",
+      city: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
   };
 
   removeEducation = (eduId) => {
@@ -21,10 +32,58 @@ export default class DocumentBody extends Component {
     }));
   };
 
-  educationChange = (currentEdu) => {
-    console.log(currentEdu);
-    this.setState(({ educations }) => ({
-      educations: [...educations, currentEdu],
+  editEducation = (eduId) => {
+    this.setState(({ educations, isEditEducation }) => ({
+      education: educations.find((edu) => edu.id === eduId),
+      isEditEducation: !isEditEducation,
+    }));
+  };
+
+  educationChange = (evt) => {
+    const name = evt.target.name;
+    const value = evt.target.value;
+
+    this.setState(({ education }) => ({
+      education: { ...education, [name]: value },
+    }));
+  };
+
+  pushToEducations = () => {
+    const { isEditEducation, educations, education } = this.state;
+
+    if (isEditEducation === true) {
+      const cloneArr = [...educations];
+      const editIndex = cloneArr.findIndex((edu) => edu.id === education.id);
+      // *overide every education field except id
+      cloneArr[editIndex] = education;
+
+      this.setState({
+        educations: cloneArr,
+        isEditEducation: false,
+        education: {
+          id: uniqid(),
+          education: "",
+          school: "",
+          city: "",
+          startDate: "",
+          endDate: "",
+          description: "",
+        },
+      });
+      return;
+    }
+
+    this.setState(({ educations, education }) => ({
+      educations: [...educations, education],
+      education: {
+        id: uniqid(),
+        education: "",
+        school: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+      },
     }));
   };
 
@@ -39,7 +98,7 @@ export default class DocumentBody extends Component {
   };
 
   render() {
-    const { personalDetails, educations } = this.state;
+    const { personalDetails, educations, education } = this.state;
     return (
       <div className="mt-14 h-screen grid px-5 py-6">
         <div className="flex flex-col gap-6">
@@ -52,9 +111,12 @@ export default class DocumentBody extends Component {
           </div>
           <div className="flex flex-col gap-5 after:border-b-2 after:border-gray-200">
             <EducationSection
-              educationChange={this.educationChange}
+              education={education}
               educations={educations}
+              handleChange={this.educationChange}
+              pushToEducations={this.pushToEducations}
               handleRemove={this.removeEducation}
+              handleEdit={this.editEducation}
             />
           </div>
         </div>
