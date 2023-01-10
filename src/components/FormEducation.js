@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import { BsCheck2 } from "react-icons/bs";
-
 export default class FormEducation extends Component {
   static propTypes = {
     educationChange: PropTypes.func.isRequired,
