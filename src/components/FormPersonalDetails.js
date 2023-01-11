@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import Avatar from "./Avatar";
 
 export default class FormPersonalDetails extends Component {
   static propTypes = {
@@ -9,18 +10,29 @@ export default class FormPersonalDetails extends Component {
       email: PropTypes.string,
       phoneNumber: PropTypes.string,
       address: PropTypes.string,
+      photo: PropTypes.string,
     }).isRequired,
     handleChange: PropTypes.func.isRequired,
   };
 
   render() {
     const {
-      personalDetails: { givenName, familyName, email, phoneNumber, address },
+      personalDetails: {
+        givenName,
+        familyName,
+        email,
+        phoneNumber,
+        address,
+        photo,
+      },
       handleChange,
     } = this.props;
 
     return (
       <form>
+        <div className="form-control">
+          <Avatar photo={photo} fileChange={handleChange} />
+        </div>
         <div className="form-control">
           <label htmlFor="given-name">Given Name</label>
           <input
