@@ -4,7 +4,7 @@ import defaultImg from "../imgs/default-avatar.png";
 
 export default class Avatar extends Component {
   static propTypes = {
-    photo: PropTypes.string,
+    photo: PropTypes.object,
   };
 
   constructor(props) {
@@ -45,7 +45,7 @@ export default class Avatar extends Component {
         <input
           className="hidden"
           type="file"
-          name="photoUrl"
+          name="photo"
           id="photo"
           accept="image/*"
           ref={this.fileInput}

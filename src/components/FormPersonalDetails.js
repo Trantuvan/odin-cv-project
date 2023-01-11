@@ -10,7 +10,7 @@ export default class FormPersonalDetails extends Component {
       email: PropTypes.string,
       phoneNumber: PropTypes.string,
       address: PropTypes.string,
-      photo: PropTypes.string,
+      photo: PropTypes.object,
     }).isRequired,
     handleChange: PropTypes.func.isRequired,
   };

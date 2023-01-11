@@ -12,7 +12,7 @@ export default class DocumentBody extends Component {
       email: "",
       phoneNumber: "",
       address: "",
-      photo: "",
+      photo: null,
     },
     isEditEducation: false,
     educations: [],
@@ -42,8 +42,7 @@ export default class DocumentBody extends Component {
 
   educationChange = (evt) => {
     const name = evt.target.name;
-    const value =
-      evt.target.type === "file" ? evt.target.files[0] : evt.target.value;
+    const value = evt.target.value;
 
     this.setState(({ education }) => ({
       education: { ...education, [name]: value },
@@ -91,7 +90,8 @@ export default class DocumentBody extends Component {
 
   personalDetailsChange = (evt) => {
     const name = evt.target.name;
-    const value = evt.target.value;
+    const value =
+      evt.target.type === "file" ? evt.target.files[0] : evt.target.value;
 
     this.setState(({ personalDetails }) => ({
       // *only take personal details to update whole state object
