@@ -24,7 +24,9 @@ export default class Avatar extends Component {
     const { photoUrl } = this.props;
     return (
       <>
-        <label htmlFor="photo">Photo</label>
+        <label htmlFor="photo" className="w-24">
+          Photo
+        </label>
         <input
           className="hidden"
           type="file"
