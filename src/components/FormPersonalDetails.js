@@ -10,7 +10,7 @@ export default class FormPersonalDetails extends Component {
       email: PropTypes.string,
       phoneNumber: PropTypes.string,
       address: PropTypes.string,
-      photo: PropTypes.object,
+      photoUrl: PropTypes.string,
     }).isRequired,
     handleChange: PropTypes.func.isRequired,
   };
@@ -23,7 +23,7 @@ export default class FormPersonalDetails extends Component {
         email,
         phoneNumber,
         address,
-        photo,
+        photoUrl,
       },
       handleChange,
     } = this.props;
@@ -31,7 +31,7 @@ export default class FormPersonalDetails extends Component {
     return (
       <form>
         <div className="form-control">
-          <Avatar photo={photo} fileChange={handleChange} />
+          <Avatar photoUrl={photoUrl} fileChange={handleChange} />
         </div>
         <div className="form-control">
           <label htmlFor="given-name">Given Name</label>

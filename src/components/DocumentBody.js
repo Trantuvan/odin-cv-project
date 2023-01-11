@@ -3,6 +3,7 @@ import uniqid from "uniqid";
 import FormSectionName from "./FormSectionName";
 import FormPersonalDetails from "./FormPersonalDetails";
 import EducationSection from "./EducationSection";
+import defaultImg from "../imgs/default-avatar.png";
 
 export default class DocumentBody extends Component {
   state = {
@@ -12,7 +13,7 @@ export default class DocumentBody extends Component {
       email: "",
       phoneNumber: "",
       address: "",
-      photo: null,
+      photoUrl: defaultImg,
     },
     isEditEducation: false,
     educations: [],
@@ -89,9 +90,25 @@ export default class DocumentBody extends Component {
   };
 
   personalDetailsChange = (evt) => {
+    if (evt.target.type === "file") {
+      // *use fileReader to load photo
+      const reader = new FileReader();
+      reader.onload = () => {
+        // *check for file load is done
+        if (reader.readyState === 2) {
+          this.setState(({ personalDetails }) => ({
+            // *only take personal details to update whole state object
+            personalDetails: { ...personalDetails, photoUrl: reader.result },
+          }));
+        }
+      };
+      // *tell file reader to read as url
+      reader.readAsDataURL(evt.target.files[0]);
+      return;
+    }
+
     const name = evt.target.name;
-    const value =
-      evt.target.type === "file" ? evt.target.files[0] : evt.target.value;
+    const value = evt.target.value;
 
     this.setState(({ personalDetails }) => ({
       // *only take personal details to update whole state object
