@@ -19,7 +19,6 @@ export default class FormElementItem extends Component {
 
   handleEdit = (evt) => {
     const { index, handleFormToggle, handleEdit } = this.props;
-    this.setState({ isDisplayed: false });
     handleFormToggle(evt);
     handleEdit(index);
   };

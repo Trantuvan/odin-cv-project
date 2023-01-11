@@ -1,16 +1,18 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import FormSectionName from "./FormSectionName";
-import FormEducation from "./FormEducation";
+import FormEmployment from "./FormEmployment";
 import FormElementItem from "./FormElementItem";
 import { GrFormAdd } from "react-icons/gr";
 
-export default class EducationSection extends Component {
+export default class EmploymentSection extends Component {
   static propTypes = {
-    pushToEducations: PropTypes.func.isRequired,
-    educations: PropTypes.arrayOf(PropTypes.object).isRequired,
-    handleRemove: PropTypes.func.isRequired,
+    employment: PropTypes.object.isRequired,
+    employments: PropTypes.array.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    pushToEmpoyments: PropTypes.func.isRequired,
     handleEdit: PropTypes.func.isRequired,
+    handleRemove: PropTypes.func.isRequired,
   };
 
   state = {
@@ -27,46 +29,47 @@ export default class EducationSection extends Component {
 
   render() {
     const {
-      pushToEducations,
-      educations,
-      handleRemove,
-      handleEdit,
-      education,
+      pushToEmpoyments,
+      employments,
+      employment,
       handleChange,
+      handleEdit,
+      handleRemove,
     } = this.props;
     const { isFormDisplayed } = this.state;
+
     const listArray = [];
 
-    educations.forEach((edu) => {
+    employments.forEach((emp) => {
       let paragraph;
 
-      if (edu.school.length === 0) {
-        paragraph = `${edu.city}`;
-      } else if (edu.city.length === 0) {
-        paragraph = `${edu.school}`;
+      if (emp.employer.length === 0) {
+        paragraph = `${emp.city}`;
+      } else if (emp.city.length === 0) {
+        paragraph = `${emp.employer}`;
       } else {
-        paragraph = `${edu.school}, ${edu.city}`;
+        paragraph = `${emp.employer}, ${emp.city}`;
       }
 
       const content = (
         <div>
-          <h4 className="font-bold text-gray-800 truncate">{edu.education}</h4>
+          <h4 className="font-bold text-gray-800 truncate">{emp.position}</h4>
           <p className="text-gray-500 truncate">{paragraph}</p>
         </div>
       );
 
       listArray.push(
         <FormElementItem
-          key={edu.id}
-          index={edu.id}
+          key={emp.id}
+          index={emp.id}
           children={
-            edu.education.length === 0 &&
-            edu.school.length === 0 &&
-            edu.city.length === 0
+            emp.position.length === 0 &&
+            emp.employer.length === 0 &&
+            emp.city.length === 0
               ? null
               : content
           }
-          defaultText="[Education]"
+          defaultText="[Employement]"
           handleRemove={handleRemove}
           handleEdit={handleEdit}
           handleFormToggle={this.handleFormToggle}
@@ -76,13 +79,13 @@ export default class EducationSection extends Component {
 
     return (
       <>
-        <FormSectionName sectionName="Education" />
+        <FormSectionName sectionName="Employment" />
         {/* if listArray empty it will not render */}
         {listArray}
-        <FormEducation
-          education={education}
+        <FormEmployment
+          employment={employment}
           handleChange={handleChange}
-          pushToEducations={pushToEducations}
+          pushToEmpoyments={pushToEmpoyments}
           handleFormToggle={this.handleFormToggle}
           isDisplayed={isFormDisplayed}
         />
@@ -92,7 +95,7 @@ export default class EducationSection extends Component {
           onClick={this.handleFormToggle}
         >
           <GrFormAdd />
-          Add education
+          Add Employment
         </button>
       </>
     );

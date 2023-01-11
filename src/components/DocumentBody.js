@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import FormSectionName from "./FormSectionName";
+import defaultImg from "../imgs/default-avatar.png";
 import FormPersonalDetails from "./FormPersonalDetails";
 import EducationSection from "./EducationSection";
-import defaultImg from "../imgs/default-avatar.png";
+import EmploymentSection from "./EmploymentSection";
 
 export default class DocumentBody extends Component {
   state = {
@@ -26,6 +27,78 @@ export default class DocumentBody extends Component {
       endDate: "",
       description: "",
     },
+    isEditEmployment: false,
+    employments: [],
+    employment: {
+      id: uniqid(),
+      position: "",
+      employer: "",
+      city: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  };
+
+  employmentChange = (evt) => {
+    const name = evt.target.name;
+    const value = evt.target.value;
+
+    this.setState(({ employment }) => ({
+      employment: { ...employment, [name]: value },
+    }));
+  };
+
+  pushToEmpoyments = () => {
+    const { isEditEmployment, employments, employment } = this.state;
+
+    if (isEditEmployment === true) {
+      const cloneArr = [...employments];
+      const editIndex = cloneArr.findIndex((emp) => emp.id === employment.id);
+      // *overide every education field except id
+      cloneArr[editIndex] = employment;
+
+      this.setState({
+        employments: cloneArr,
+        isEditEmployment: false,
+        employment: {
+          id: uniqid(),
+          position: "",
+          employer: "",
+          city: "",
+          startDate: "",
+          endDate: "",
+          description: "",
+        },
+      });
+      return;
+    }
+
+    this.setState(({ employments, employment }) => ({
+      employments: [...employments, employment],
+      employment: {
+        id: uniqid(),
+        position: "",
+        employer: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+      },
+    }));
+  };
+
+  removeEmployment = (empId) => {
+    this.setState(({ employments }) => ({
+      employments: employments.filter((emp) => emp.id !== empId),
+    }));
+  };
+
+  editEmployment = (empId) => {
+    this.setState(({ employments, isEditEmployment }) => ({
+      employment: employments.find((edu) => edu.id === empId),
+      isEditEmployment: !isEditEmployment,
+    }));
   };
 
   removeEducation = (eduId) => {
@@ -117,7 +190,8 @@ export default class DocumentBody extends Component {
   };
 
   render() {
-    const { personalDetails, educations, education } = this.state;
+    const { personalDetails, educations, education, employment, employments } =
+      this.state;
     return (
       <div className="mt-14 grid gap-6 px-2 py-4">
         <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
@@ -135,6 +209,16 @@ export default class DocumentBody extends Component {
             pushToEducations={this.pushToEducations}
             handleRemove={this.removeEducation}
             handleEdit={this.editEducation}
+          />
+        </div>
+        <div className="flex flex-col gap-4">
+          <EmploymentSection
+            employment={employment}
+            employments={employments}
+            handleChange={this.employmentChange}
+            pushToEmpoyments={this.pushToEmpoyments}
+            handleEdit={this.editEmployment}
+            handleRemove={this.removeEmployment}
           />
         </div>
       </div>
