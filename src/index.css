@@ -23,16 +23,12 @@
 }
 
 @layer component {
-  html {
-    @apply scroll-smooth;
-  }
-
   body {
     font-family: "Poppins", sans-serif;
   }
 
   form {
-    @apply grid gap-2;
+    @apply flex flex-col gap-2;
   }
 
   .form-control {
@@ -41,10 +37,5 @@
 
   label {
     @apply text-sm text-gray-500 font-medium;
-  }
-
-  .aspect-1-1 {
-    aspect-ratio: 1/1;
-    object-fit: cover;
   }
 }

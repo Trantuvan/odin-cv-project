@@ -5,10 +5,10 @@ import DocumentBody from "./components/DocumentBody";
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <DocumentToolbar />
         <DocumentBody />
-      </div>
+      </>
     );
   }
 }

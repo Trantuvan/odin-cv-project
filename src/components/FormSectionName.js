@@ -9,10 +9,6 @@ export default class FormSectionName extends Component {
   render() {
     const { sectionName } = this.props;
 
-    return (
-      <div className="flex justify-between items-center">
-        <h4 className="text-xl font-medium">{sectionName}</h4>
-      </div>
-    );
+    return <h4 className="text-xl font-medium">{sectionName}</h4>;
   }
 }

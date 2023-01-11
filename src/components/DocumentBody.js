@@ -119,27 +119,24 @@ export default class DocumentBody extends Component {
   render() {
     const { personalDetails, educations, education } = this.state;
     return (
-      <div className="mt-14 h-screen grid px-5 py-6">
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-5 after:border-b-2 after:border-gray-200">
-            <FormSectionName sectionName="Personal details" />
-            <FormPersonalDetails
-              personalDetails={personalDetails}
-              handleChange={this.personalDetailsChange}
-            />
-          </div>
-          <div className="flex flex-col gap-5 after:border-b-2 after:border-gray-200">
-            <EducationSection
-              education={education}
-              educations={educations}
-              handleChange={this.educationChange}
-              pushToEducations={this.pushToEducations}
-              handleRemove={this.removeEducation}
-              handleEdit={this.editEducation}
-            />
-          </div>
+      <div className="mt-14 grid gap-6 px-2 py-4">
+        <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
+          <FormSectionName sectionName="Personal details" />
+          <FormPersonalDetails
+            personalDetails={personalDetails}
+            handleChange={this.personalDetailsChange}
+          />
         </div>
-        <div className="cv-section"></div>
+        <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
+          <EducationSection
+            education={education}
+            educations={educations}
+            handleChange={this.educationChange}
+            pushToEducations={this.pushToEducations}
+            handleRemove={this.removeEducation}
+            handleEdit={this.editEducation}
+          />
+        </div>
       </div>
     );
   }

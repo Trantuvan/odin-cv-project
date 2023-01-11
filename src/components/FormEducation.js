@@ -26,7 +26,7 @@ export default class FormEducation extends Component {
       <>
         {isDisplayed && (
           <form
-            className="px-4 py-6 border-2 rounded-md"
+            className="px-2 py-3 border-2 rounded-md"
             onSubmit={this.handleSubmit}
           >
             <div className="form-control">
