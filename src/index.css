@@ -20,6 +20,14 @@
   select {
     @apply rounded-sm bg-gray-100 border-none shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-indigo-100;
   }
+
+  /* QuickReset */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    box-sizing: border-box;
+  }
 }
 
 @layer component {

@@ -193,7 +193,7 @@ export default class DocumentBody extends Component {
     const { personalDetails, educations, education, employment, employments } =
       this.state;
     return (
-      <div className="mt-14 grid gap-6 px-2 py-4">
+      <div className="mx-auto max-w-2xl mt-14 grid gap-6 px-2 py-10 pt-2 sm:px-5">
         <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
           <FormSectionName sectionName="Personal details" />
           <FormPersonalDetails
