@@ -5,6 +5,7 @@ import defaultImg from "../imgs/default-avatar.png";
 import FormPersonalDetails from "./FormPersonalDetails";
 import EducationSection from "./EducationSection";
 import EmploymentSection from "./EmploymentSection";
+import { HiOutlineDocumentSearch } from "react-icons/hi";
 
 export default class DocumentBody extends Component {
   state = {
@@ -221,6 +222,13 @@ export default class DocumentBody extends Component {
             handleRemove={this.removeEmployment}
           />
         </div>
+        <button
+          type="button"
+          className="flex items-center gap-1 ml-auto bg-indigo-700 text-white p-2 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
+          <HiOutlineDocumentSearch className="w-5 h-6" />
+          Preview
+        </button>
       </div>
     );
   }
