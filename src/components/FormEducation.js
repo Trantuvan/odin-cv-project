@@ -39,27 +39,29 @@ export default class FormEducation extends Component {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-control">
-              <label htmlFor="school">School</label>
-              <input
-                type="text"
-                name="school"
-                id="school"
-                value={school}
-                onChange={handleChange}
-              />
+            <div className="grid sm:grid-cols-2 sm:gap-4">
+              <div className="form-control">
+                <label htmlFor="school">School</label>
+                <input
+                  type="text"
+                  name="school"
+                  id="school"
+                  value={school}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="city">City</label>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  value={city}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-            <div className="form-control">
-              <label htmlFor="city">City</label>
-              <input
-                type="text"
-                name="city"
-                id="city"
-                value={city}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-4">
               <div className="form-control">
                 <label htmlFor="start-date">Start date</label>
                 <input
