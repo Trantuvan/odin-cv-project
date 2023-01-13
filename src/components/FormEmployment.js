@@ -91,6 +91,7 @@ export default class FormEmployment extends Component {
                 name="description"
                 value={description}
                 onChange={handleChange}
+                className="resize-none min-h-[150px] whitespace-pre-wrap break-word"
               />
             </div>
             <div className="form-control items-end mt-1">
