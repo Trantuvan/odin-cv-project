@@ -39,7 +39,7 @@ export default class Avatar extends Component {
         <img
           src={photoUrl}
           alt="user-avatar"
-          className="h-24 w-24 rounded object-cover bg-slate-200 shadow"
+          className="h-24 w-24 rounded object-cover bg-slate-200 shadow sm:w-32 sm:h-32"
           onClick={this.browse}
         />
       </>
