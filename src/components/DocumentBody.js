@@ -11,11 +11,11 @@ import { HiOutlineDocumentSearch } from "react-icons/hi";
 export default class DocumentBody extends Component {
   state = {
     personalDetails: {
-      givenName: "Josephine",
-      familyName: "Fourier",
-      email: "trantuvan@gmail.com",
-      phoneNumber: "0369158125",
-      address: "82 297 street, Phuoc Long B ward, District 9",
+      givenName: "",
+      familyName: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
       photoUrl: defaultImg,
     },
     isEditEducation: false,
