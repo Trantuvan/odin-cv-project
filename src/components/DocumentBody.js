@@ -192,54 +192,69 @@ export default class DocumentBody extends Component {
   };
 
   render() {
+    const { openPreview, isPreview } = this.props;
     const { personalDetails, educations, education, employment, employments } =
       this.state;
+
     return (
-      <div className="mt-14 grid lg:grid-cols-2">
-        <div className="flex flex-col gap-4 px-2 py-10 lg:px-5 lg:-max-h-3.5rem lg:overflow-y-auto">
-          <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
-            <FormSectionName sectionName="Personal details" />
-            <FormPersonalDetails
+      <>
+        {isPreview === true ? (
+          <div className="mt-20 flex justify-center">
+            <CVTemplate
               personalDetails={personalDetails}
-              handleChange={this.personalDetailsChange}
-            />
-          </div>
-          <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
-            <EducationSection
-              education={education}
               educations={educations}
-              handleChange={this.educationChange}
-              pushToEducations={this.pushToEducations}
-              handleRemove={this.removeEducation}
-              handleEdit={this.editEducation}
-            />
-          </div>
-          <div className="flex flex-col gap-4">
-            <EmploymentSection
-              employment={employment}
               employments={employments}
-              handleChange={this.employmentChange}
-              pushToEmpoyments={this.pushToEmpoyments}
-              handleEdit={this.editEmployment}
-              handleRemove={this.removeEmployment}
             />
           </div>
-          <button
-            type="button"
-            className="flex items-center gap-1 ml-auto bg-indigo-700 text-white p-2 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 lg:hidden"
-          >
-            <HiOutlineDocumentSearch className="w-5 h-6" />
-            Preview
-          </button>
-        </div>
-        <div className="hidden shadow-inner bg-zinc-200/25 justify-center items-center lg:flex">
-          <CVTemplate
-            personalDetails={personalDetails}
-            educations={educations}
-            employments={employments}
-          />
-        </div>
-      </div>
+        ) : (
+          <div className="mt-14 grid lg:grid-cols-2">
+            <div className="flex flex-col gap-4 px-2 py-10 lg:px-5 lg:-max-h-3.5rem lg:overflow-y-auto">
+              <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
+                <FormSectionName sectionName="Personal details" />
+                <FormPersonalDetails
+                  personalDetails={personalDetails}
+                  handleChange={this.personalDetailsChange}
+                />
+              </div>
+              <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
+                <EducationSection
+                  education={education}
+                  educations={educations}
+                  handleChange={this.educationChange}
+                  pushToEducations={this.pushToEducations}
+                  handleRemove={this.removeEducation}
+                  handleEdit={this.editEducation}
+                />
+              </div>
+              <div className="flex flex-col gap-4">
+                <EmploymentSection
+                  employment={employment}
+                  employments={employments}
+                  handleChange={this.employmentChange}
+                  pushToEmpoyments={this.pushToEmpoyments}
+                  handleEdit={this.editEmployment}
+                  handleRemove={this.removeEmployment}
+                />
+              </div>
+              <button
+                type="button"
+                className="flex items-center gap-1 ml-auto bg-indigo-700 text-white p-2 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 lg:hidden"
+                onClick={openPreview}
+              >
+                <HiOutlineDocumentSearch className="w-5 h-6" />
+                Preview
+              </button>
+            </div>
+            <div className="hidden shadow-inner bg-zinc-200/25 justify-center items-center lg:flex">
+              <CVTemplate
+                personalDetails={personalDetails}
+                educations={educations}
+                employments={employments}
+              />
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }

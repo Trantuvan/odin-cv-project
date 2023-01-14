@@ -39,15 +39,19 @@ export default class CVTemplate extends Component {
       return (
         <div key={eduItem.id}>
           <div className="flex justify-between items-center">
-            <h4 className="text-sm font-semibold">{eduItem.education}</h4>
-            <p className="text-xs text-indigo-500">
+            <h4 className="text-[8.6px] lg:text-sm font-semibold">
+              {eduItem.education}
+            </h4>
+            <p className="text-[8px] lg:text-xs text-indigo-500">
               {eduItem.startDate.length === 0 || eduItem.endDate.length === 0
                 ? null
                 : `${sYear} ${sMonth} - ${eYear} ${eMonth}`}
             </p>
           </div>
-          <p className="text-xs text-indigo-400">{paragraph}</p>
-          <p className="text-xs pt-2 break-words">{eduItem.description}</p>
+          <p className="text-[8px] lg:text-xs text-indigo-400">{paragraph}</p>
+          <p className="text-[8px] lg:text-xs pt-2 break-words">
+            {eduItem.description}
+          </p>
         </div>
       );
     });
@@ -69,15 +73,19 @@ export default class CVTemplate extends Component {
       return (
         <div key={emp.id}>
           <div className="flex justify-between items-center">
-            <h4 className="text-sm font-semibold">{emp.position}</h4>
-            <p className="text-xs text-indigo-500">
+            <h4 className="text-[8.6px] lg:text-sm font-semibold">
+              {emp.position}
+            </h4>
+            <p className="text-[8px] lg:text-xs text-indigo-500">
               {emp.startDate.length === 0 || emp.endDate.length === 0
                 ? null
                 : `${sYear} ${sMonth} - ${eYear} ${eMonth}`}
             </p>
           </div>
-          <p className="text-xs text-indigo-400">{paragraph}</p>
-          <p className="text-xs pt-2 break-words">{emp.description}</p>
+          <p className="text-[8px] lg:text-xs text-indigo-400">{paragraph}</p>
+          <p className="text-[8px] lg:text-xs pt-2 break-words">
+            {emp.description}
+          </p>
         </div>
       );
     });
@@ -89,7 +97,7 @@ export default class CVTemplate extends Component {
           <div className="flex flex-col gap-1 after:border-b-2 after:border-gray-200">
             <h2 className="text-xl text-indigo-500 font-semibold">{`${givenName} ${familyName}`}</h2>
           </div>
-          <div className="h-[95%] pt-5 pb-3 grid gap-2 grid-cols-32%">
+          <div className="h-[95%] pt-5 pb-3 grid gap-2 grid-cols-40% lg:grid-cols-32%">
             <div className="bg-zinc-100 p-2 flex flex-col gap-2">
               <img
                 src={photoUrl}
@@ -97,39 +105,47 @@ export default class CVTemplate extends Component {
                 className="object-contain aspect-square p-2 rounded"
               />
               <div className="flex flex-col gap-1 after:border-b-2 after:border-gray-200">
-                <h4 className="text-sm text-indigo-500 font-semibold">
+                <h4 className="text-[9.8px] text-indigo-500 font-semibold lg:text-sm">
                   Personal Details
                 </h4>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex-items">
-                  <h5 className="text-sm font-bold">Name</h5>
-                  <p className="text-[10px]">{`${givenName} ${familyName}`}</p>
+                  <h5 className="text-[11px] lg:text-sm font-bold">Name</h5>
+                  <p className="text-[9px] lg:text-[10px]">{`${givenName} ${familyName}`}</p>
                 </div>
                 <div className="flex-items">
-                  <h5 className="text-sm font-bold">Email Address</h5>
-                  <p className="text-[10px]">{email}</p>
+                  <h5 className="text-[11px] lg:text-sm font-bold">
+                    Email Address
+                  </h5>
+                  <p className="text-[9px] lg:text-[10px]">{email}</p>
                 </div>
                 <div className="flex-items">
-                  <h5 className="text-sm font-bold">Phone Number</h5>
-                  <p className="text-[10px]">{phoneNumber}</p>
+                  <h5 className="text-[11px] lg:text-sm font-bold">
+                    Phone Number
+                  </h5>
+                  <p className="text-[9px] lg:text-[10px]">{phoneNumber}</p>
                 </div>
                 <div className="flex-items">
-                  <h5 className="text-sm font-bold">Address</h5>
-                  <p className="text-[10px]">{address}</p>
+                  <h5 className="text-[11px] lg:text-sm font-bold">Address</h5>
+                  <p className="text-[9px] lg:text-[10px]">{address}</p>
                 </div>
               </div>
             </div>
             <div className="grid">
               <div className="education">
                 <div className="flex flex-col gap-1 after:border-b-2 after:border-gray-200">
-                  <h4 className="text-indigo-500 font-semibold">Education</h4>
+                  <h4 className="text-sm lg:text-base text-indigo-500 font-semibold">
+                    Education
+                  </h4>
                 </div>
                 <div className="flex flex-col gap-2">{educationList}</div>
               </div>
               <div className="employment">
                 <div className="flex flex-col gap-1 after:border-b-2 after:border-gray-200">
-                  <h4 className="text-indigo-500 font-semibold">Employment</h4>
+                  <h4 className="text-sm lg:text-base text-indigo-500 font-semibold">
+                    Employment
+                  </h4>
                 </div>
                 <div className="flex flex-col gap-2">{EmploymentList}</div>
               </div>
