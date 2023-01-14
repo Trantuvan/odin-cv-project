@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/odin-cv-project/static/css/main.e1dab60e.css",
-    "main.js": "/odin-cv-project/static/js/main.5e2ec473.js",
+    "main.css": "/odin-cv-project/static/css/main.fe00b19e.css",
+    "main.js": "/odin-cv-project/static/js/main.28f35fc2.js",
     "index.html": "/odin-cv-project/index.html",
-    "main.e1dab60e.css.map": "/odin-cv-project/static/css/main.e1dab60e.css.map",
-    "main.5e2ec473.js.map": "/odin-cv-project/static/js/main.5e2ec473.js.map"
+    "main.fe00b19e.css.map": "/odin-cv-project/static/css/main.fe00b19e.css.map",
+    "main.28f35fc2.js.map": "/odin-cv-project/static/js/main.28f35fc2.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1dab60e.css",
-    "static/js/main.5e2ec473.js"
+    "static/css/main.fe00b19e.css",
+    "static/js/main.28f35fc2.js"
   ]
 }
