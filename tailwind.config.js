@@ -7,6 +7,9 @@ module.exports = {
       gridTemplateColumns: {
         "1-4": "1fr 4fr",
       },
+      maxHeight: {
+        "-10rem": "calc(100vh - 10rem)",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

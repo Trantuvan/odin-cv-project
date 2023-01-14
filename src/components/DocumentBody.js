@@ -194,41 +194,46 @@ export default class DocumentBody extends Component {
     const { personalDetails, educations, education, employment, employments } =
       this.state;
     return (
-      <div className="mx-auto max-w-2xl mt-14 grid gap-6 px-2 py-10 pt-2 sm:px-5">
-        <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
-          <FormSectionName sectionName="Personal details" />
-          <FormPersonalDetails
-            personalDetails={personalDetails}
-            handleChange={this.personalDetailsChange}
-          />
+      <div className="mt-14 grid px-2 py-10 sm:px-5 lg:grid-cols-2">
+        <div className="flex flex-col gap-4 lg:pl-2 lg:pr-3 lg:-max-h-10rem lg:overflow-y-auto">
+          <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
+            <FormSectionName sectionName="Personal details" />
+            <FormPersonalDetails
+              personalDetails={personalDetails}
+              handleChange={this.personalDetailsChange}
+            />
+          </div>
+          <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
+            <EducationSection
+              education={education}
+              educations={educations}
+              handleChange={this.educationChange}
+              pushToEducations={this.pushToEducations}
+              handleRemove={this.removeEducation}
+              handleEdit={this.editEducation}
+            />
+          </div>
+          <div className="flex flex-col gap-4">
+            <EmploymentSection
+              employment={employment}
+              employments={employments}
+              handleChange={this.employmentChange}
+              pushToEmpoyments={this.pushToEmpoyments}
+              handleEdit={this.editEmployment}
+              handleRemove={this.removeEmployment}
+            />
+          </div>
+          <button
+            type="button"
+            className="flex items-center gap-1 ml-auto bg-indigo-700 text-white p-2 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 lg:hidden"
+          >
+            <HiOutlineDocumentSearch className="w-5 h-6" />
+            Preview
+          </button>
         </div>
-        <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
-          <EducationSection
-            education={education}
-            educations={educations}
-            handleChange={this.educationChange}
-            pushToEducations={this.pushToEducations}
-            handleRemove={this.removeEducation}
-            handleEdit={this.editEducation}
-          />
+        <div className="hidden bg-zinc-50 justify-center items-center text-9xl lg:flex">
+          Hi
         </div>
-        <div className="flex flex-col gap-4">
-          <EmploymentSection
-            employment={employment}
-            employments={employments}
-            handleChange={this.employmentChange}
-            pushToEmpoyments={this.pushToEmpoyments}
-            handleEdit={this.editEmployment}
-            handleRemove={this.removeEmployment}
-          />
-        </div>
-        <button
-          type="button"
-          className="flex items-center gap-1 ml-auto bg-indigo-700 text-white p-2 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        >
-          <HiOutlineDocumentSearch className="w-5 h-6" />
-          Preview
-        </button>
       </div>
     );
   }
