@@ -5,16 +5,17 @@ import defaultImg from "../imgs/default-avatar.png";
 import FormPersonalDetails from "./FormPersonalDetails";
 import EducationSection from "./EducationSection";
 import EmploymentSection from "./EmploymentSection";
+import CVTemplate from "./CVTemplate";
 import { HiOutlineDocumentSearch } from "react-icons/hi";
 
 export default class DocumentBody extends Component {
   state = {
     personalDetails: {
-      givenName: "",
-      familyName: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
+      givenName: "Josephine",
+      familyName: "Fourier",
+      email: "trantuvan@gmail.com",
+      phoneNumber: "0369158125",
+      address: "82 297 street, Phuoc Long B ward, District 9",
       photoUrl: defaultImg,
     },
     isEditEducation: false,
@@ -194,8 +195,8 @@ export default class DocumentBody extends Component {
     const { personalDetails, educations, education, employment, employments } =
       this.state;
     return (
-      <div className="mt-14 grid px-2 py-10 sm:px-5 lg:grid-cols-2">
-        <div className="flex flex-col gap-4 lg:pl-2 lg:pr-3 lg:-max-h-10rem lg:overflow-y-auto">
+      <div className="mt-14 grid lg:grid-cols-2">
+        <div className="flex flex-col gap-4 px-2 py-10 lg:px-5 lg:-max-h-3.5rem lg:overflow-y-auto">
           <div className="flex flex-col gap-4 after:border-b-2 after:border-gray-200">
             <FormSectionName sectionName="Personal details" />
             <FormPersonalDetails
@@ -231,8 +232,12 @@ export default class DocumentBody extends Component {
             Preview
           </button>
         </div>
-        <div className="hidden bg-zinc-50 justify-center items-center text-9xl lg:flex">
-          Hi
+        <div className="hidden shadow-inner bg-zinc-200/25 justify-center items-center lg:flex">
+          <CVTemplate
+            personalDetails={personalDetails}
+            educations={educations}
+            employments={employments}
+          />
         </div>
       </div>
     );
