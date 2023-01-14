@@ -5,17 +5,17 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        "40%": "40% 1fr",
+        "32%": "32% 1fr",
         "1-4": "1fr 4fr",
       },
       gridTemplateRows: {
-        "cv-layout": "0.5fr 10fr 0.5fr",
+        "cv-layout": "20px 1fr 20px",
       },
       maxHeight: {
         "-3.5rem": "calc(100vh - 3.5rem)",
       },
       aspectRatio: {
-        "10/16": "10/16",
+        "3/4": "3/4",
       },
     },
   },

@@ -83,13 +83,13 @@ export default class CVTemplate extends Component {
     });
 
     return (
-      <div className="grid grid-rows-cv-layout bg-white/90 shadow-md aspect-10/16 w-11/12 max-w-lg">
+      <div className="grid grid-rows-cv-layout bg-white/90 shadow-md aspect-3/4 w-11/12 max-w-lg">
         <div className="bg-indigo-500 rounded-t-md"></div>
         <div className="px-5 pt-6 pb-3">
           <div className="flex flex-col gap-1 after:border-b-2 after:border-gray-200">
             <h2 className="text-xl text-indigo-500 font-semibold">{`${givenName} ${familyName}`}</h2>
           </div>
-          <div className="h-[95%] pt-5 pb-3 grid gap-2 grid-cols-40%">
+          <div className="h-[95%] pt-5 pb-3 grid gap-2 grid-cols-32%">
             <div className="bg-zinc-100 p-2 flex flex-col gap-2">
               <img
                 src={photoUrl}
@@ -97,26 +97,26 @@ export default class CVTemplate extends Component {
                 className="object-contain aspect-square p-2 rounded"
               />
               <div className="flex flex-col gap-1 after:border-b-2 after:border-gray-200">
-                <h4 className="text-indigo-500 font-semibold">
+                <h4 className="text-sm text-indigo-500 font-semibold">
                   Personal Details
                 </h4>
               </div>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2">
                 <div className="flex-items">
                   <h5 className="text-sm font-bold">Name</h5>
-                  <p className="text-sm">{`${givenName} ${familyName}`}</p>
+                  <p className="text-[10px]">{`${givenName} ${familyName}`}</p>
                 </div>
                 <div className="flex-items">
                   <h5 className="text-sm font-bold">Email Address</h5>
-                  <p className="text-sm">{email}</p>
+                  <p className="text-[10px]">{email}</p>
                 </div>
                 <div className="flex-items">
                   <h5 className="text-sm font-bold">Phone Number</h5>
-                  <p className="text-sm">{phoneNumber}</p>
+                  <p className="text-[10px]">{phoneNumber}</p>
                 </div>
                 <div className="flex-items">
                   <h5 className="text-sm font-bold">Address</h5>
-                  <p className="text-sm">{address}</p>
+                  <p className="text-[10px]">{address}</p>
                 </div>
               </div>
             </div>
